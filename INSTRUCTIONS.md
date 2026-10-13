@@ -6,6 +6,7 @@
 
 ```sh
     git checkout testing
+    git pull
     git add .
     git commit -m "feat(directory): add new folder"
     git push

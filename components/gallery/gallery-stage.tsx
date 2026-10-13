@@ -54,7 +54,7 @@ export function GalleryStage({
   }
 
   return (
-    <main className="flex-1 flex flex-col relative bg-background overflow-hidden">
+    <main className="flex min-h-0 min-w-0 flex-1 flex-col relative bg-background overflow-hidden">
       {/* Info bar */}
       <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-5 py-3 bg-gradient-to-b from-background/90 to-transparent pointer-events-none">
         <div className="flex items-center gap-2">
