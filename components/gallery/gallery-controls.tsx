@@ -156,26 +156,26 @@ export function GalleryControls({
         </div>
       </div>
 
-      {/* Controls row */}
-      <div className="flex items-center justify-between px-4 pb-2.5 pt-1">
-        {/* Left: now-playing info */}
-        <div className="flex items-center gap-3 min-w-0 flex-1">
-          <div className="flex items-center gap-1.5 text-primary">
+      {/* Controls row: mobile stacks the title above controls so filenames stay readable. */}
+      <div className="flex flex-col px-3 pb-2.5 pt-1 md:flex-row md:items-center md:justify-between md:px-4">
+        {/* Now-playing info */}
+        <div className="flex min-w-0 w-full items-center justify-between gap-3 pb-1.5 md:w-auto md:flex-1 md:pb-0">
+          <div className="flex min-w-0 items-center gap-1.5 text-primary">
             <FolderOpen className="size-4 shrink-0" />
-            <span className="text-xs font-medium truncate max-w-28">
+            <span className="truncate text-xs font-medium md:max-w-28">
               {folderName || "---"}
             </span>
           </div>
-          <div className="flex items-center gap-1.5 text-foreground/60">
+          <div className="flex min-w-0 flex-1 items-center justify-end gap-1.5 text-foreground/60 md:flex-none md:justify-start">
             <ImageIcon className="size-3 shrink-0" />
-            <span className="text-xs truncate max-w-40">
+            <span className="truncate text-right text-xs md:max-w-40 md:text-left">
               {fileName || "---"}
             </span>
           </div>
         </div>
 
         {/* Center: transport controls */}
-        <div className="flex items-center gap-1">
+        <div className="flex w-full items-center justify-center gap-1 md:w-auto">
           <ControlBtn label="Previous folder (Shift+Left)" onClick={onPrevFolder}>
             <ChevronsLeft className="size-4" />
           </ControlBtn>
@@ -188,7 +188,7 @@ export function GalleryControls({
                 variant="default"
                 size="icon"
                 onClick={onTogglePlay}
-                className="mx-1 rounded-full bg-primary text-primary-foreground hover:bg-primary/85"
+                className="mx-1 size-11 rounded-full bg-primary text-primary-foreground hover:bg-primary/85"
                 aria-label={isPlaying ? "Pause (Space)" : "Play (Space)"}
               >
                 {isPlaying ? <Pause className="size-5" /> : <Play className="size-5 ml-0.5" />}
@@ -206,8 +206,8 @@ export function GalleryControls({
           </ControlBtn>
         </div>
 
-        {/* Right: utility controls */}
-        <div className="flex items-center gap-0.5 flex-1 justify-end">
+        {/* Utility controls */}
+        <div className="flex w-full items-center justify-center gap-0.5 overflow-x-auto pt-1 md:w-auto md:flex-1 md:justify-end md:pt-0">
           <ControlBtn label={`Speed: ${speed}x`} onClick={onCycleSpeed} isActive={speed > 1}>
             <Timer className="size-4" />
           </ControlBtn>
@@ -227,14 +227,10 @@ export function GalleryControls({
             {isFullscreen ? <Minimize className="size-4" /> : <Maximize className="size-4" />}
           </ControlBtn>
 
-          <div className="ml-2 flex items-center gap-2 text-[10px] text-muted-foreground tabular-nums">
-            <span>
-              {folderIndex + 1}/{totalFolders}
-            </span>
-            <span className="text-border">|</span>
-            <span>
-              {fileIndex + 1}/{folderFileCount}
-            </span>
+          <div className="ml-auto flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md border border-border/60 bg-background/60 px-2 py-1 text-[10px] text-muted-foreground tabular-nums md:ml-2">
+            <span aria-label="Current folder and total folders">Folder {folderIndex + 1}/{totalFolders}</span>
+            <span className="text-border">•</span>
+            <span aria-label="Current file and files in folder">File {fileIndex + 1}/{folderFileCount}</span>
           </div>
         </div>
       </div>
