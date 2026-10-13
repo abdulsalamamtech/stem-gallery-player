@@ -5,7 +5,7 @@
 2. Run this commands
 
 ```sh
-
+    git checkout testing
     git add .
     git commit -m "feat(directory): add new folder"
     git push
