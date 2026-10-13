@@ -58,8 +58,8 @@ export function GallerySidebar({
             <h2 className="text-sm font-semibold text-sidebar-foreground tracking-wide uppercase">
               Folders
             </h2>
-            <span className="ml-auto text-xs text-muted-foreground">
-              {folders.length}
+            <span className="text-xs font-medium text-muted-foreground tabular-nums">
+              ({folders.length})
             </span>
           </div>
 
