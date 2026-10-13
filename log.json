@@ -3,6 +3,10 @@
     {
       "username": "amtech",
       "password": "12345678"
+    },
+    {
+      "username": "stemlab",
+      "password": "12345678"
     }
   ]
 }
