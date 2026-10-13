@@ -22,7 +22,7 @@ export function GalleryPlayer() {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-background overflow-hidden">
+    <div className="flex min-h-0 flex-col h-dvh bg-background overflow-hidden">
       <GalleryHeader
         searchQuery={player.searchQuery}
         onSearchChange={player.setSearchQuery}
