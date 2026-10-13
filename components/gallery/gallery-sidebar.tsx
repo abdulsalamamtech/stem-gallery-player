@@ -29,7 +29,7 @@ export function GallerySidebar({
   return (
     <aside
       className={cn(
-        "flex flex-col bg-sidebar border-r border-sidebar-border transition-all duration-300 ease-in-out relative",
+        "flex min-h-0 flex-col overflow-hidden bg-sidebar border-r border-sidebar-border transition-all duration-300 ease-in-out relative",
         isOpen ? "w-72" : "w-0"
       )}
     >
@@ -63,7 +63,7 @@ export function GallerySidebar({
             </span>
           </div>
 
-          <ScrollArea className="flex-1">
+          <ScrollArea className="min-h-0 flex-1">
             <nav className="p-2 flex flex-col gap-1" aria-label="Media folders">
               {folders.map((folder, fIdx) => {
                 const isFolderActive = fIdx === folderIndex;
